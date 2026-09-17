@@ -1,18 +1,5 @@
 const WHATSAPP = "59176868881";
 
-// CATÁLOGO: esta es la zona que cambiaremos cuando agreguemos productos reales.
-// No hace falta tocar el diseño para cambiar nombre, precio, categoría o descripción.
-const products = [
-  { name: "Secador de cabello", price: 230, category: "Accesorios", description: "Práctico y pensado para uso diario." },
-  { name: "Esterilizador", price: 99, category: "Hogar", description: "Precio promocional. Consulta disponibilidad." },
-  { name: "Linterna solar / eléctrica", price: 120, category: "Iluminación", description: "Opción práctica para casa, trabajo y emergencias." },
-  { name: "Vasos", price: 90, category: "Hogar", description: "Consulta modelos y disponibilidad." },
-  { name: "Sanci Foco", price: null, category: "Iluminación", description: "Consulta precio y disponibilidad por WhatsApp." },
-  { name: "Sanci Mini 8K", price: null, category: "Tecnología", description: "Consulta precio y disponibilidad por WhatsApp." },
-  { name: "Cámara Tomate", price: null, category: "Seguridad", description: "Consulta precio y disponibilidad por WhatsApp." },
-  { name: "Cámara Bossney", price: null, category: "Seguridad", description: "Consulta precio y disponibilidad por WhatsApp." }
-];
-
 let selectedCategory = "Todos";
 
 const grid = document.getElementById("productGrid");
@@ -56,8 +43,10 @@ function renderProducts() {
   emptyState.hidden = visible.length > 0;
   grid.innerHTML = visible.map(product => `
     <article class="product-card">
-      <div class="product-image" role="img" aria-label="Foto pendiente de ${product.name}">
-        <span>Foto de producto<br><small>se agregará aquí</small></span>
+      <div class="product-image">
+        <img src="${product.image}" alt="${product.name}" loading="lazy"
+          onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
+        <span hidden>Foto de producto<br><small>se agregará aquí</small></span>
       </div>
       <div class="product-info">
         <div class="product-category">${product.category}</div>
