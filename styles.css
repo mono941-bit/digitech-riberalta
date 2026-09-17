@@ -22,7 +22,8 @@ button, input { font: inherit; }
 .header-inner { min-height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 1.12rem; }
 .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; color: white; background: var(--brand); }
-.header-whatsapp { font-size: .9rem; font-weight: 700; color: var(--success); }
+.header-whatsapp { min-height: 40px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 9px; color: var(--success); font-size: .9rem; font-weight: 700; }
+.header-whatsapp:hover { background: #edf9f1; }
 
 .hero { background: var(--surface); border-bottom: 1px solid var(--border); }
 .hero-inner { padding: 46px 0 42px; }
@@ -41,11 +42,14 @@ h2 { margin: 3px 0 0; font-size: 1.8rem; letter-spacing: -.03em; }
 .category-bar::-webkit-scrollbar { display: none; }
 .category-button { flex: 0 0 auto; border: 1px solid var(--border); background: white; color: var(--text); border-radius: 999px; padding: 8px 14px; cursor: pointer; font-weight: 600; font-size: .88rem; }
 .category-button.active { border-color: var(--brand); color: white; background: var(--brand); }
+.category-button:focus-visible, .primary-button:focus-visible, .whatsapp-button:focus-visible, .header-whatsapp:focus-visible, .floating-whatsapp:focus-visible { outline: 3px solid rgba(11,99,206,.3); outline-offset: 2px; }
 
 .product-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .product-card { min-width: 0; overflow: hidden; background: white; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 3px 10px rgba(16,24,40,.04); }
-.product-image { aspect-ratio: 1 / 1; display: grid; place-items: center; padding: 18px; background: linear-gradient(145deg, #eef4fb, #f8fafc); color: #52606d; font-weight: 800; text-align: center; }
-.product-image span { max-width: 90%; font-size: .9rem; }
+.product-image { aspect-ratio: 1 / 1; display: grid; place-items: center; overflow: hidden; padding: 0; background: linear-gradient(145deg, #eef4fb, #f8fafc); color: #52606d; font-weight: 800; text-align: center; }
+.product-image img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.product-image span { max-width: 90%; padding: 18px; font-size: .9rem; }
+.product-image small { font-weight: 500; }
 .product-info { padding: 13px; }
 .product-category { color: var(--brand); font-size: .7rem; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
 .product-name { margin: 4px 0 3px; font-size: 1rem; line-height: 1.25; }
