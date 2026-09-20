@@ -17,18 +17,15 @@ No usamos carrito ni procesos de pago complicados en esta primera versión. La v
 
 - `index.html` — estructura de la tienda.
 - `styles.css` — diseño responsive y mobile-first.
+- `catalog.js` — datos de productos y rutas de imágenes.
 - `app.js` — catálogo, búsqueda, categorías y enlaces de WhatsApp.
+- `images/` — carpeta destinada a las fotos de productos.
 
 ## Cómo agregar o cambiar productos
 
-Los productos se editan en la lista `products` de `app.js`. Cada producto tiene:
+Los datos de los productos están separados del funcionamiento de la tienda para poder actualizarlos sin rehacer la página.
 
-- `name`: nombre.
-- `price`: precio en Bs; usar `null` si se debe consultar.
-- `category`: categoría.
-- `description`: descripción corta.
-
-Las fotos reales se incorporarán en una siguiente carga sin cambiar la estructura general.
+Las fotos reales se incorporarán progresivamente en la carpeta `images/` y se conectarán con su producto correspondiente.
 
 ## Principio del proyecto
 
