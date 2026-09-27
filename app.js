@@ -43,11 +43,11 @@ function renderProducts() {
   emptyState.hidden = visible.length > 0;
   grid.innerHTML = visible.map(product => `
     <article class="product-card">
-      <div class="product-image">
+      <button class="product-image" type="button" data-image="${product.image}" data-name="${product.name}" aria-label="Ver imagen grande de ${product.name}">
         <img src="${product.image}" alt="${product.name}" loading="lazy"
           onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
         <span hidden>Foto de producto<br><small>se agregará aquí</small></span>
-      </div>
+      </button>
       <div class="product-info">
         <div class="product-category">${product.category}</div>
         <h3 class="product-name">${product.name}</h3>
@@ -59,8 +59,50 @@ function renderProducts() {
       </div>
     </article>
   `).join("");
+
+  grid.querySelectorAll(".product-image").forEach(button => {
+    button.addEventListener("click", () => openImageModal(button.dataset.image, button.dataset.name));
+  });
 }
 
+function createImageModal() {
+  const modal = document.createElement("div");
+  modal.className = "image-modal";
+  modal.hidden = true;
+  modal.innerHTML = `
+    <div class="image-modal-backdrop" data-close-modal></div>
+    <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+      <button class="image-modal-close" type="button" aria-label="Cerrar imagen" data-close-modal>×</button>
+      <img id="modalImage" src="" alt="">
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  modal.addEventListener("click", event => {
+    if (event.target.closest("[data-close-modal]")) closeImageModal();
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !modal.hidden) closeImageModal();
+  });
+}
+
+function openImageModal(image, name) {
+  const modal = document.querySelector(".image-modal");
+  const modalImage = document.getElementById("modalImage");
+  modalImage.src = image;
+  modalImage.alt = name;
+  modal.hidden = false;
+  document.body.classList.add("modal-open");
+}
+
+function closeImageModal() {
+  const modal = document.querySelector(".image-modal");
+  modal.hidden = true;
+  document.body.classList.remove("modal-open");
+}
+
+createImageModal();
 searchInput.addEventListener("input", renderProducts);
 renderCategories();
 renderProducts();
