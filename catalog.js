@@ -7,7 +7,7 @@ const products = [
     name: "Taladro inalámbrico",
     price: null,
     category: "Herramientas",
-    description: "Taladro inalámbrico para trabajos y reparaciones en casa.",
+    description: "Práctico y portátil para perforar, atornillar y realizar reparaciones en casa o trabajo. Funciona sin cable.",
     image: "images/products/IMG-20260422-WA0014.jpg"
   },
   {
@@ -15,7 +15,7 @@ const products = [
     name: "Freidora de aire",
     price: null,
     category: "Hogar",
-    description: "Cocina tus alimentos de forma práctica y con menos aceite.",
+    description: "Prepara papas, pollo y otros alimentos de forma práctica, rápida y con menos aceite. Ideal para el hogar.",
     image: "images/products/file_000000002f98820e86daf7a7326842de.png"
   },
   {
@@ -23,7 +23,7 @@ const products = [
     name: "Linterna recargable Lelong",
     price: 100,
     category: "Iluminación",
-    description: "Linterna recargable para casa, trabajo, viajes y emergencias.",
+    description: "Linterna recargable Lelong, práctica para casa, trabajo, viajes y cortes de energía. Fácil de transportar.",
     image: "images/products/file_000000003bc8820e99dfeaaa27fdd749.png"
   },
   {
@@ -31,7 +31,7 @@ const products = [
     name: "Vaso térmico de acero inoxidable",
     price: 90,
     category: "Hogar",
-    description: "900 ml, acero inoxidable, tapa 3 en 1 y asa de transporte. Mantiene frío hasta 12 horas y caliente hasta 8 horas.",
+    description: "900 ml · acero inoxidable · tapa 3 en 1 · asa de transporte. Mantiene frío hasta 12 h y caliente hasta 8 h.",
     image: "images/products/file_000000008c90820e8b95e0ac62873ea5.png"
   },
   {
@@ -39,7 +39,7 @@ const products = [
     name: "Cámara Foco Sanci",
     price: null,
     category: "Seguridad",
-    description: "Cámara foco WiFi con visión nocturna, audio bidireccional, detección de movimiento y giro 360°. Compatible con Android y iOS.",
+    description: "WiFi · visión nocturna · audio bidireccional · detección de movimiento · giro 360°. Control desde Android y iOS.",
     image: "images/products/file_000000009be8820eb708abcc9a70a594.png"
   },
   {
@@ -47,7 +47,7 @@ const products = [
     name: "Cámara Tomate Doble Lente",
     price: 320,
     category: "Seguridad",
-    description: "Cámara inteligente WiFi para exteriores, 6 MP, visión nocturna a color, detección de movimiento, alarma y control desde el celular.",
+    description: "WiFi para exteriores · 6 MP · visión nocturna a color · detección de movimiento · alarma · control desde el celular.",
     image: "images/products/file_00000000cc84820e81e065fe9b2eee23.png"
   }
 ];
