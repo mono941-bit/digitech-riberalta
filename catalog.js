@@ -4,10 +4,10 @@
 const products = [
   {
     id: "taladro-inalambrico",
-    name: "Taladro inalámbrico",
-    price: null,
+    name: "Taladro inalámbrico con baterías recargables",
+    price: 340,
     category: "Herramientas",
-    description: "Práctico y portátil para perforar, atornillar y realizar reparaciones en casa o trabajo. Funciona sin cable.",
+    description: "Kit con taladro inalámbrico, baterías recargables, cargador, brocas y accesorios en maletín. Práctico para instalaciones, reparaciones y proyectos de bricolaje en casa o taller.",
     image: "images/products/IMG-20260422-WA0014.jpg"
   },
   {
@@ -28,10 +28,10 @@ const products = [
   },
   {
     id: "vaso-termico",
-    name: "Vaso térmico de acero inoxidable",
-    price: 90,
+    name: "Vaso térmico cafetero",
+    price: 80,
     category: "Hogar",
-    description: "900 ml · acero inoxidable · tapa 3 en 1 · asa de transporte. Mantiene frío hasta 12 h y caliente hasta 8 h.",
+    description: "Disfruta tu bebida a tu gusto: mantiene el contenido caliente hasta 8 horas y frío hasta 12 horas. Ideal para llevar al trabajo, la oficina o donde quieras.",
     image: "images/products/file_000000008c90820e8b95e0ac62873ea5.png"
   },
   {
