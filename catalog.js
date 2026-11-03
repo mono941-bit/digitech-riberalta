@@ -19,14 +19,6 @@ const products = [
     image: "images/products/file_000000002f98820e86daf7a7326842de.png"
   },
   {
-    id: "linterna-lelong",
-    name: "Linterna recargable Lelong",
-    price: 100,
-    category: "Iluminación",
-    description: "Linterna recargable Lelong, práctica para casa, trabajo, viajes y cortes de energía. Fácil de transportar.",
-    image: "images/products/file_000000003bc8820e99dfeaaa27fdd749.png"
-  },
-  {
     id: "vaso-termico",
     name: "Vaso térmico cafetero",
     price: 80,
