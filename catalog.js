@@ -117,6 +117,22 @@ const products = [
   }
   ,
   {
+    id: "lidimi-ld-l462a",
+    name: "Linterna LIDIMI LD-L462A",
+    price: 240,
+    category: "Linternas",
+    description: "Linterna de mano LIDIMI LD-L462A recargable por USB. Según la ficha del producto: potencia indicada de 30 W y autonomía anunciada de hasta 3 horas.",
+    image: "images/products/lidimi-ld-l462a.png"
+  },
+  {
+    id: "lidimi-ld-l1608a",
+    name: "Linterna LIDIMI LD-L1608A",
+    price: 210,
+    category: "Linternas",
+    description: "Linterna de mano LIDIMI LD-L1608A recargable por USB. Según la ficha del producto: potencia indicada de 30 W y autonomía anunciada de hasta 3 horas.",
+    image: "images/products/lidimi-ld-l1608a.png"
+  },
+  {
     id: "ewtto-et-e2269bs",
     name: "Linterna EWTTO ET-E2269BS",
     price: 470,
