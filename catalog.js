@@ -115,5 +115,14 @@ const products = [
     description: "Parlante multimedia portátil con iluminación LED y formato compacto para llevar tu música contigo. Cuenta con Bluetooth, radio FM y opciones de reproducción por USB. Ideal para reuniones y entretenimiento diario.",
     image: "images/products/lidimi-ld-s659.png"
   }
+  ,
+  {
+    id: "ewtto-et-e2269bs",
+    name: "Linterna EWTTO ET-E2269BS",
+    price: 470,
+    category: "Linternas",
+    description: "Linterna EWTTO ET-E2269BS. Una opción práctica para iluminación en el hogar, el trabajo y actividades al aire libre.",
+    image: "images/products/ewtto-et-e2269bs.png"
+  }
 
 ];
