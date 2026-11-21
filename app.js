@@ -11,7 +11,7 @@ const money = value => value === null ? "Consultar" : `Bs ${value}`;
 
 function whatsappLink(product) {
   const price = product.price === null ? "precio por consultar" : `precio ${money(product.price)}`;
-  const message = `Hola Digi-Tech, estoy interesado en ${product.name} (${price}). ¿Me pueden confirmar disponibilidad?`;
+  const message = `Hola KIANSANGO, estoy interesado en ${product.name} (${price}). ¿Me pueden confirmar disponibilidad?`;
   return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
 
