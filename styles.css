@@ -137,3 +137,41 @@ h2 { margin: 3px 0 0; font-size: 1.8rem; letter-spacing: -.03em; }
 @media (prefers-reduced-motion: reduce) {
   .product-card, .product-sheet, .product-modal-backdrop { transition: none; animation: none; }
 }
+
+
+/* Tarjetas uniformes con acciones claras */
+.product-card { display: flex; flex-direction: column; }
+.product-card .product-image { flex: 0 0 auto; }
+.product-card .product-info { display: flex; flex: 1; flex-direction: column; align-items: stretch; }
+.product-description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.7em;
+  max-height: 2.7em;
+  margin: 5px 0 10px;
+  color: var(--muted);
+  font-size: .78rem;
+  line-height: 1.35;
+}
+.product-info .product-price { margin-top: auto; margin-bottom: 10px; }
+.details-button {
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--brand);
+  border-radius: 9px;
+  color: var(--brand-dark);
+  background: white;
+  cursor: pointer;
+  font-size: .84rem;
+  font-weight: 800;
+}
+.details-button:hover { background: var(--brand-soft); }
+.product-info .whatsapp-button { min-height: 40px; }
