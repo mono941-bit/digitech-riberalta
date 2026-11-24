@@ -219,3 +219,27 @@ h2 { margin: 3px 0 0; font-size: 1.8rem; letter-spacing: -.03em; }
   .trust-grid { grid-template-columns: 1fr; }
   .reviews-panel { grid-template-columns: 1fr; padding: 16px; }
 }
+
+
+/* Footer institucional y datos de contacto */
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1.2fr 1fr;
+  align-items: start;
+  gap: 24px;
+  padding: 28px 0 24px;
+}
+.footer-column { display: grid; gap: 5px; }
+.footer-column strong { color: #fff; font-size: .82rem; }
+.footer-column span, .footer-column a, .footer-brand span { color: #b8d4d1; }
+.footer-column a:hover { color: #fff; text-decoration: underline; }
+.footer-social small { color: #8fb4b1; font-size: .7rem; }
+.footer-bottom { padding: 12px 0 18px; border-top: 1px solid rgba(232,244,242,.16); color: #8fb4b1; font-size: .72rem; }
+@media (max-width: 760px) {
+  .footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 14px; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 380px) {
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-brand { grid-column: auto; }
+}
