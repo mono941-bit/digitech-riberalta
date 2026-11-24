@@ -175,3 +175,24 @@ h2 { margin: 3px 0 0; font-size: 1.8rem; letter-spacing: -.03em; }
 }
 .details-button:hover { background: var(--brand-soft); }
 .product-info .whatsapp-button { min-height: 40px; }
+
+
+/* "Ver más" como enlace discreto bajo la descripción */
+.details-button { all: unset; }
+.details-link {
+  display: inline-block;
+  align-self: flex-start;
+  margin: -5px 0 10px;
+  padding: 0;
+  border: 0;
+  color: var(--brand-dark);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.details-link:hover { color: var(--brand); }
+.details-link:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; border-radius: 2px; }
