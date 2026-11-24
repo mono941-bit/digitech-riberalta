@@ -51,10 +51,11 @@ function renderProducts() {
       <div class="product-info">
         <div class="product-category">${product.category}</div>
         <h3 class="product-name">${product.name}</h3>
+        <p class="product-description">${product.description}</p>
         <div class="product-price">${money(product.price)}</div>
-        <span class="product-details-hint">Toca para ver descripción completa <span aria-hidden="true">↗</span></span>
+        <button class="details-button" type="button" data-details="${product.id}">Ver más</button>
         <a class="whatsapp-button" href="${whatsappLink(product)}" target="_blank" rel="noopener">
-          Consultar por WhatsApp
+          Contactar
         </a>
       </div>
     </article>
@@ -66,7 +67,13 @@ function renderProducts() {
       if (product) openProductDetails(product);
     };
     card.addEventListener("click", event => {
-      if (!event.target.closest("a")) open();
+      if (event.target.closest("a, button")) return;
+      open();
+    });
+    const detailsButton = card.querySelector("[data-details]");
+    detailsButton.addEventListener("click", event => {
+      event.stopPropagation();
+      open();
     });
     card.addEventListener("keydown", event => {
       if ((event.key === "Enter" || event.key === " ") && !event.target.closest("a")) {
