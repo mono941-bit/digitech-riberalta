@@ -52,8 +52,8 @@ function renderProducts() {
         <div class="product-category">${product.category}</div>
         <h3 class="product-name">${product.name}</h3>
         <p class="product-description">${product.description}</p>
+        <button class="details-link" type="button" data-details="${product.id}">Ver más</button>
         <div class="product-price">${money(product.price)}</div>
-        <button class="details-button" type="button" data-details="${product.id}">Ver más</button>
         <a class="whatsapp-button" href="${whatsappLink(product)}" target="_blank" rel="noopener">
           Contactar
         </a>
