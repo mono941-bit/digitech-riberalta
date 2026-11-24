@@ -42,17 +42,17 @@ function renderProducts() {
 
   emptyState.hidden = visible.length > 0;
   grid.innerHTML = visible.map(product => `
-    <article class="product-card">
-      <button class="product-image" type="button" data-image="${product.image}" data-name="${product.name}" aria-label="Ver imagen grande de ${product.name}">
+    <article class="product-card" data-product-id="${product.id}" tabindex="0" role="button" aria-label="Ver detalles de ${product.name}">
+      <div class="product-image">
         <img src="${product.image}" alt="${product.name}" loading="lazy"
           onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
         <span hidden>Foto de producto<br><small>se agregará aquí</small></span>
-      </button>
+      </div>
       <div class="product-info">
         <div class="product-category">${product.category}</div>
         <h3 class="product-name">${product.name}</h3>
-        <p class="product-description">${product.description}</p>
         <div class="product-price">${money(product.price)}</div>
+        <span class="product-details-hint">Toca para ver descripción completa <span aria-hidden="true">↗</span></span>
         <a class="whatsapp-button" href="${whatsappLink(product)}" target="_blank" rel="noopener">
           Consultar por WhatsApp
         </a>
@@ -60,49 +60,72 @@ function renderProducts() {
     </article>
   `).join("");
 
-  grid.querySelectorAll(".product-image").forEach(button => {
-    button.addEventListener("click", () => openImageModal(button.dataset.image, button.dataset.name));
+  grid.querySelectorAll(".product-card").forEach(card => {
+    const open = () => {
+      const product = products.find(item => item.id === card.dataset.productId);
+      if (product) openProductDetails(product);
+    };
+    card.addEventListener("click", event => {
+      if (!event.target.closest("a")) open();
+    });
+    card.addEventListener("keydown", event => {
+      if ((event.key === "Enter" || event.key === " ") && !event.target.closest("a")) {
+        event.preventDefault();
+        open();
+      }
+    });
   });
 }
 
-function createImageModal() {
+function createProductModal() {
   const modal = document.createElement("div");
-  modal.className = "image-modal";
+  modal.className = "product-modal";
   modal.hidden = true;
   modal.innerHTML = `
-    <div class="image-modal-backdrop" data-close-modal></div>
-    <div class="image-modal-content" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
-      <button class="image-modal-close" type="button" aria-label="Cerrar imagen" data-close-modal>×</button>
-      <img id="modalImage" src="" alt="">
-    </div>
+    <div class="product-modal-backdrop" data-close-product></div>
+    <section class="product-sheet" role="dialog" aria-modal="true" aria-labelledby="detailName">
+      <button class="product-sheet-close" type="button" aria-label="Cerrar detalles" data-close-product>×</button>
+      <div class="product-sheet-image-wrap">
+        <img id="detailImage" src="" alt="">
+      </div>
+      <div class="product-sheet-content">
+        <span class="product-category" id="detailCategory"></span>
+        <h2 id="detailName"></h2>
+        <div class="product-sheet-price" id="detailPrice"></div>
+        <h3>Descripción del producto</h3>
+        <p id="detailDescription"></p>
+        <a class="whatsapp-button product-sheet-cta" id="detailWhatsapp" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      </div>
+    </section>
   `;
   document.body.appendChild(modal);
-
   modal.addEventListener("click", event => {
-    if (event.target.closest("[data-close-modal]")) closeImageModal();
+    if (event.target.closest("[data-close-product]")) closeProductDetails();
   });
-
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape" && !modal.hidden) closeImageModal();
+    if (event.key === "Escape" && !modal.hidden) closeProductDetails();
   });
 }
 
-function openImageModal(image, name) {
-  const modal = document.querySelector(".image-modal");
-  const modalImage = document.getElementById("modalImage");
-  modalImage.src = image;
-  modalImage.alt = name;
+function openProductDetails(product) {
+  const modal = document.querySelector(".product-modal");
+  document.getElementById("detailImage").src = product.image;
+  document.getElementById("detailImage").alt = product.name;
+  document.getElementById("detailCategory").textContent = product.category;
+  document.getElementById("detailName").textContent = product.name;
+  document.getElementById("detailPrice").textContent = money(product.price);
+  document.getElementById("detailDescription").textContent = product.description;
+  document.getElementById("detailWhatsapp").href = whatsappLink(product);
   modal.hidden = false;
   document.body.classList.add("modal-open");
 }
 
-function closeImageModal() {
-  const modal = document.querySelector(".image-modal");
-  modal.hidden = true;
+function closeProductDetails() {
+  document.querySelector(".product-modal").hidden = true;
   document.body.classList.remove("modal-open");
 }
 
-createImageModal();
+createProductModal();
 searchInput.addEventListener("input", renderProducts);
 renderCategories();
 renderProducts();
